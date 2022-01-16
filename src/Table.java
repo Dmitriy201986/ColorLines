@@ -44,11 +44,11 @@ public class Table {
                     table1[y][x] = 91; break;
                 }
             }
-
-            i = i+1;}}
+            i = i+1;
+        }
+        }
         while (i<quan);
     }
-
 
     public static void clean_table() {
         for (int i = 1; i < table1.length - 1; i++)
@@ -77,6 +77,5 @@ public class Table {
 
         if (quanity <= 1) {is_game = false;
             continue_game = false;}
-
     }
 }

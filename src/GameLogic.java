@@ -160,7 +160,6 @@ public class GameLogic {
         }
     }
 
-
     public void trace () throws InterruptedException {
 
         for (int i = x_positions.size() - 2; i >= 0; i--){

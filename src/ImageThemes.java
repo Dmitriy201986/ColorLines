@@ -19,7 +19,6 @@ public class ImageThemes {
                  FileReader reader2 = new FileReader("Images.txt");
                  BufferedReader read2 = new BufferedReader(reader2)
             ) {
-
                 while (read1.ready())
                     key1 = read1.readLine();
                 while (read2.ready())
@@ -45,7 +44,5 @@ public class ImageThemes {
                 map.put(image_themes.get(j), images);
                 j++;
             }
-
         }
-
     }

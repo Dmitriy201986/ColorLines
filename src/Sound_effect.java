@@ -1,6 +1,5 @@
 import javax.sound.sampled.*;
 import java.io.File;
-import java.io.*;
 import java.io.IOException;
 
 public class Sound_effect {
@@ -28,7 +27,6 @@ public class Sound_effect {
 
         dataLine.stop();
         dataLine.close();
-
     }
 
     public void volume_change(float value) throws LineUnavailableException {
@@ -41,9 +39,6 @@ public class Sound_effect {
         FloatControl volume = (FloatControl) speaker.getControl(FloatControl.Type.VOLUME);
         float vol = (value)/100;
         volume.setValue(vol);
-
     }
-
-
 }
 

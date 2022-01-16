@@ -1,58 +1,55 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.DirectoryStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 
-public class Saves implements ActionListener {
+public class Saves {
 
     public static Path save_directory = Path.of("Saves").toAbsolutePath();
+    public static String open_directory1 = "";
 
-    public Saves(int level, int score, String name) throws IOException {
+    public Saves(int level, int score, String name){
 
-        String str = save_directory+"\\"+ name +".txt";
+        String str = save_directory + "\\" + name + ".txt";
 
-        if (!Files.isRegularFile(Path.of(str))){
-        try (BufferedWriter writer = Files.newBufferedWriter(Path.of(str))){
-        writer.write(level+", "+score);
+        if (!Files.isRegularFile(Path.of(str))) {
+            try (BufferedWriter writer = Files.newBufferedWriter(Path.of(str))) {
+                writer.write(level + ", " + score);
 
-         } catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void save_game(int level, int score, String str) throws IOException {
+
+        try (BufferedWriter writer = Files.newBufferedWriter(Path.of(str))) {
+            writer.write(level + ", " + score);
+
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }}
-        else { String exits = "Файл уже существует. Переписать?";}
-
-
-    }
-
-    public static void saved_files (){
-    try (DirectoryStream<Path> saved_f = Files.newDirectoryStream(save_directory)) {
-        String str1;
-        for (Path str:saved_f ) {
-            str1 = str.getFileName().toString();
-            System.out.println(str1);
-
         }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
     }
 
+    public static String open_game (String open_directory){
+        String str = "";
+        open_directory1 = save_directory + "\\"+ open_directory + ".txt";
+        try (FileReader file_reader = new FileReader(open_directory1);
+             BufferedReader reader = new BufferedReader(file_reader)) {
+            while (reader.ready()){
+                str = reader.readLine();
 
-    public static void main(String[] args) throws IOException {
-new Saves(3,800,"text");
-        System.out.println();
-        saved_files();
-    }
+            }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        saved_files();
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл с сохранением не найден. Попробуй другой");
+        } catch (IOException e) {
+            System.out.println("Файл с сохранением не найден. Попробуй другой");
+        }
+        return str;
     }
 }

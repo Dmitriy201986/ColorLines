@@ -36,7 +36,8 @@ public class Removing {
                             Table.table1[k-1][j] = type_of_ball-5;
                             Table.table1[k-2][j] = type_of_ball-5;}
 
-                       } }
+                       }
+                }
     }
 }
 
@@ -126,7 +127,8 @@ public class Removing {
                         }
                     }
                 }
-            } m++;
+            }
+            m++;
         }
     }
 
@@ -158,7 +160,5 @@ public class Removing {
         remove_diagonal_two(91);
         remove_diagonal_three(91);
         remove_diagonal_four(91);
-
-
     }
 }

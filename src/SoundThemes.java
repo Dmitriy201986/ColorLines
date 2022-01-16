@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,9 +15,8 @@ public class SoundThemes {
         try (FileReader reader1 = new FileReader("ThemesName.txt");
              BufferedReader read1 = new BufferedReader(reader1);
              FileReader reader2 = new FileReader("Sounds.txt");
-             BufferedReader read2 = new BufferedReader(reader2)
-        ) {
-
+             BufferedReader read2 = new BufferedReader(reader2))
+        {
             while (read1.ready())
                 key = read1.readLine();
             while (read2.ready())
@@ -44,8 +42,5 @@ public class SoundThemes {
             map.put(sound_themes.get(j), sounds);
             j++;
         }
-
     }
-
-
 }

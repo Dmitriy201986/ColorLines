@@ -19,7 +19,5 @@ public class GameWin {
         frame.add(win,BorderLayout.NORTH);
         frame.add(label);
         frame.setSize(635,540);
-
-
     }
 }

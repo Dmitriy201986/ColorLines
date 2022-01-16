@@ -75,15 +75,12 @@ public class Main {
                         break;
                     }
 
-
                     gameLogic.set_Position();
                     gameLogic.finding(GameLogic.x_begin, GameLogic.y_begin, GameLogic.x_end, GameLogic.y_end);
 
                     gameLogic.trace();
 
-
                     Table.clean_table();
-
 
                     Removing.remove_lines();
 

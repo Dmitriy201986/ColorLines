@@ -23,6 +23,5 @@ public class EndGame extends JFrame {
         frame.setBounds(100,50,635,540);
         new Sound_effect(Main.win_sound);
     }
-
-    }
+}
 

@@ -22,8 +22,6 @@ public class BallsTable extends JFrame implements GameFieldUpdateCallback, SetBa
     public BallsTable() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-
-
         main_panel.setBounds(20,100, 500,500);
 
         GridLayout layout = new GridLayout(10,10,2,2);
@@ -167,9 +165,6 @@ public class BallsTable extends JFrame implements GameFieldUpdateCallback, SetBa
         frame.add(speak);
     }
 
-
-
-
     public void after_begin (){
         button_no.setBounds(20,40,55,55);
         button_yes.setBounds(1,1,1,1);
@@ -183,6 +178,15 @@ public class BallsTable extends JFrame implements GameFieldUpdateCallback, SetBa
     @Override
     public void updateBallsIcons() {
         updateAllBallsImageIcons();
+    }
+
+    @Override
+    public void updateHeader(int scor, int lev) {
+        level.setText("Уровень " + lev);
+        Main.quanity_of_score = lev * 20;
+        score.setText(""+scor);
+        progress.setValue(scor);
+        progress.setMaximum(lev * 20);
     }
 
     @Override
