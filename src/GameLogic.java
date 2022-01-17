@@ -133,7 +133,7 @@ public class GameLogic {
                         if (Table.table1[y_up][x_up] == 0)
                             Table.table1[y_up][x_up] = currentStep +1;
 
-                    if (y_down < 12)
+                    if (y_down < 11)
                         if (Table.table1[y_down][x_down] == 0)
                             Table.table1[y_down][x_down] = currentStep +1;
 
@@ -141,7 +141,7 @@ public class GameLogic {
                         if (Table.table1[y_left][x_left] == 0)
                             Table.table1[y_left][x_left] = currentStep +1;
 
-                    if (x_rigth < 12)
+                    if (x_rigth < 11)
                         if (Table.table1[y_rigth][x_rigth] == 0)
                             Table.table1[y_rigth][x_rigth] = currentStep +1;
                 }
@@ -153,10 +153,12 @@ public class GameLogic {
         x_positions.add(x);
         y_positions.add(y);
         for (int i = currentStep; i >= 10; i--) {
+
             if (Table.table1[y+1][x] == i) {y = y+1; x_positions.add(x); y_positions.add(y);} else
             if (Table.table1[y-1][x] == i) {y = y-1; x_positions.add(x); y_positions.add(y);} else
             if (Table.table1[y][x+1] == i) {x = x+1; x_positions.add(x); y_positions.add(y);} else
             if (Table.table1[y][x-1] == i) {x = x-1; x_positions.add(x); y_positions.add(y);}
+
         }
     }
 
