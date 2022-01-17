@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class BallsTable extends JFrame implements GameFieldUpdateCallback, SetBallCallBack {
+
     public float volume = 0.5f;
     public int temp_type_of_ball;
     public JFrame frame = new JFrame("BALLS");
@@ -188,6 +189,10 @@ public class BallsTable extends JFrame implements GameFieldUpdateCallback, SetBa
         progress.setValue(scor);
         progress.setMaximum(lev * 20);
     }
+    public float getVolume() {
+        return volume;
+    }
+
 
     @Override
     public void invokeSetBall() {

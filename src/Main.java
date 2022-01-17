@@ -55,7 +55,7 @@ public class Main {
                     Table.filling();
                     ballsTable.updateAllBallsImageIcons();
                     Thread.sleep(50);
-                    new Sound_effect(clean1);
+                    new Sound_effect(clean1).play_effect(ballsTable.getVolume());
                      Removing.remove_lines();
                     Table.clean_table();
                     ballsTable.updateAllBallsImageIcons();
@@ -75,7 +75,7 @@ public class Main {
                         break;
                     }
 
-                    gameLogic.set_Position();
+                    gameLogic.set_Position(ballsTable.getVolume());
                     gameLogic.finding(GameLogic.x_begin, GameLogic.y_begin, GameLogic.x_end, GameLogic.y_end);
 
                     gameLogic.trace();
@@ -89,8 +89,8 @@ public class Main {
                     ballsTable.set_score();
 
                     ballsTable.updateAllBallsImageIcons();
-                    new Sound_effect(remove);
-                    new Sound_effect(clean2);
+                    new Sound_effect(remove).play_effect(ballsTable.getVolume());
+                    new Sound_effect(clean2).play_effect(ballsTable.getVolume());
                     ballsTable.progress.setValue(Removing.score);
                     if ((Removing.score >= quanity_of_score) && (b == false)) {
                         Thread.sleep(1500);

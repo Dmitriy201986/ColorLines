@@ -33,7 +33,7 @@ public class GameLogic {
         return ((y_button - 1) / 50 + 1);
     }
 
-    public void set_Position() throws InterruptedException, UnsupportedAudioFileException,
+    public void set_Position(float volume) throws InterruptedException, UnsupportedAudioFileException,
             LineUnavailableException, IOException {
 
         do {
@@ -66,7 +66,7 @@ public class GameLogic {
                 } else continue;
             }
             while (Table.table1[y_begin][x_begin] == 0);
-            new Sound_effect(Main.setting_ball);
+            new Sound_effect(Main.setting_ball).play_effect(volume);
             setBallCallBack.invokeSetBall();
 
             ButtonActionListner.x_button = 0;
